@@ -7,7 +7,7 @@ import { Recipe } from '../recipe.model';
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
-  @Output() recipeSelected = new EventEmitter<{recipeName: string, recipeDesc: string}>();
+  @Output() recipeSelected = new EventEmitter<Recipe>();
 
   recipes: Recipe[] = [
     new Recipe('Pizza', 'The best pizza ever!','https://upload.wikimedia.org/wikipedia/commons/f/f0/Pepperoni_pizza_with_basil.jpg'),
@@ -21,11 +21,8 @@ export class RecipeListComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSelectRecipe(recipeName: string,  recipeDesc: string){
-    this.recipeSelected.emit({
-      recipeName: recipeName,
-      recipeDesc: recipeDesc
-    })
+  onSelectRecipe(recipe: Recipe){
+    this.recipeSelected.emit(recipe);
   }
 
 }
