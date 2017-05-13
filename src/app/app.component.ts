@@ -6,13 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  selectedView: string;
+  loadedFeature: string;
 
   constructor(){
-    this.selectedView = "recipes";
+    this.loadedFeature = "recipe";
   }
   
-  onViewSelected(selectedViewData: {selectedView: string}){
-    this.selectedView = selectedViewData.selectedView;
+  onNavigate(feature: string){
+    this.loadedFeature = feature;
   }
 }
